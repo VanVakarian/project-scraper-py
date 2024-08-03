@@ -1,15 +1,15 @@
-extensions = [
+extensions_include = [
     '.js',
     '.ts',
     '.json',
     '.html',
     '.css',
     '.scss',
-    '.py'
+    '.py',
 ]
 
 
-ignore_dirs = [
+dirs_ignore = [
     'node_modules',
     'public',
     'assets',
@@ -17,7 +17,7 @@ ignore_dirs = [
     '.vscode',
 ]
 
-ignore_files = [
+files_ignore = [
     'package-lock.json',
     'package.json',
     'prettierrc.json',

@@ -1,25 +1,25 @@
 import os
 import sys
 import argparse
-from options import extensions, ignore_dirs, ignore_files
+from options import extensions_include, dirs_ignore, files_ignore
 
 
-def collect_files(directory, extensions, ignore_dirs, ignore_files):
+def collect_files(directory, extensions_include, dirs_ignore, files_ignore):
     collected_text = ""
     file_count = 0
 
     for root, dirs, files in os.walk(directory):
-        dirs[:] = [d for d in dirs if d not in ignore_dirs]
+        dirs[:] = [d for d in dirs if d not in dirs_ignore]
 
         for file in files:
-            if file in ignore_files:
+            if file in files_ignore:
                 continue
-            if any(file.endswith(ext) for ext in extensions):
+            if any(file.endswith(ext) for ext in extensions_include):
                 file_path = os.path.join(root, file)
                 relative_path = os.path.relpath(file_path, directory)
                 with open(file_path, 'r', encoding='utf-8') as f:
-                    collected_text += f"=== {relative_path} ===\n\n\n"
-                    collected_text += f.read() + '\n\n\n\n\n\n'
+                    collected_text += f"======= /{relative_path} \n\n\n"
+                    collected_text += f.read() + '\n\n\n\n\n'
                 file_count += 1
                 print(f"\r{file_count} files processed", end='')
 
@@ -45,7 +45,7 @@ def main():
     root_folder_name = os.path.basename(os.path.abspath(directory))
     output_file = args.output_filename if args.output_filename else f"{root_folder_name}.txt"
 
-    collected_text = collect_files(directory, extensions, ignore_dirs, ignore_files)
+    collected_text = collect_files(directory, extensions_include, dirs_ignore, files_ignore)
     num_lines = save_to_file(collected_text, output_file)
 
     print(f"Done, {num_lines} lines scraped into {output_file}")

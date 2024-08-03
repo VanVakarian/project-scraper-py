@@ -23,34 +23,34 @@ python project-scraper.py --path ./my_project --output-filename collected_files.
 
 ## Settings
 
-### extensions
+### extensions_include
 
-The `options.py` file contains a list of file extensions to be collected:
+The `options.py` file contains a list of file extensions_include to be collected:
 
 ```python
-extensions = [
+extensions_include = [
     '.js',
     '.ts',
 ]
 ```
 
-### ignore_dirs
+### dirs_ignore
 
 A list of directories to be ignored when collecting files:
 
 ```python
-ignore_dirs = [
+dirs_ignore = [
     'node_modules',
     'public',
 ]
 ```
 
-### ignore_files
+### files_ignore
 
 A list of files to be ignored when collecting:
 
 ```python
-ignore_files = [
+files_ignore = [
     'package-lock.json',
     'package.json',
 ]
