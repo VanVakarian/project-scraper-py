@@ -7,6 +7,7 @@ FILE_EXTENSIONS_INCLUDE = [
     '.scss',
     '.py',
     '.example',
+    '.md',
 ]
 
 
