@@ -1,4 +1,4 @@
-extensions_include = [
+FILE_EXTENSIONS_INCLUDE = [
     '.js',
     '.ts',
     '.json',
@@ -6,18 +6,23 @@ extensions_include = [
     '.css',
     '.scss',
     '.py',
+    '.example',
 ]
 
 
-dirs_ignore = [
+DIR_NAMES_IGNORE = [
     'node_modules',
     'public',
     'assets',
     '.angular',
     '.vscode',
+    'del',
+    'dist',
+    'static',
 ]
 
-files_ignore = [
+
+FILE_NAMES_IGNORE = [
     'package-lock.json',
     'package.json',
     'prettierrc.json',
@@ -27,4 +32,5 @@ files_ignore = [
     'angular.json',
     'tsconfig.json',
     '.prettierrc.json',
+    'env.js'
 ]
